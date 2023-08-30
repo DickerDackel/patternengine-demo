@@ -21,7 +21,7 @@ dependencies = [
     "pgcooldown",
     "rpeasings",
     "tinyecs",
-    "patternengine @ git+https://github.com/dickerdackel/patternengine"
+    "patternengine"
 ]
 
 [project.scripts]
