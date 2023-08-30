@@ -1,0 +1,42 @@
+[project]
+name = "patternengine-demo"
+description = "Demo showcasing many patterns from the patternengine project"
+version = "0.0.1"
+readme = "README.md"
+
+authors = [
+    { name="Michael Lamertz", email="michael.lamertz@gmail.com" }
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Games/Entertainment",
+    "Topic :: Software Development :: Libraries :: pygame",
+]
+
+dependencies = [
+    "pygame-ce",
+    "pgcooldown",
+    "rpeasings",
+    "tinyecs",
+    "patternengine @ git+https://github.com/dickerdackel/patternengine"
+]
+
+[project.scripts]
+patternengine-demo = "patternengine_demo.app:main"
+
+[project.urls]
+homepage = "https://github.com/dickerdackel/patternengine-demo"
+bugtracker = "https://github.com/DickerDackel/patternengine-demo/issues"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+addopts = "-rA -s --cov-report term-missing -s"
+testpaths = [
+    "tests",
+]
