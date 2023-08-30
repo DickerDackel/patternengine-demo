@@ -13,7 +13,7 @@ main python install.
 python -m venv patternengine-demo
 cd patternengine-demo
 
-Scripts/activate.bat
+Scripts\activate.bat
 # or on linux
 # source ./bin/activate
 
