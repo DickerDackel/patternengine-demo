@@ -1,3 +1,4 @@
+import glm
 import pygame
 import tinyecs as ecs
 import tinyecs.compsys as ecsc
@@ -6,7 +7,6 @@ import patternengine as pe
 import patternengine.compsys as pecs
 
 from functools import lru_cache, partial
-from itertools import cycle
 from random import random
 
 from pgcooldown import Cooldown, CronD, LerpThing
@@ -14,7 +14,8 @@ from pygame import Vector2
 from patternengine_demo.framework import GameState
 from rpeasings import *  # noqa: F401, F403
 
-from patternengine_demo.config import States
+
+crond = CronD()
 
 
 class FBlitGroup(pygame.sprite.Group):
@@ -23,7 +24,6 @@ class FBlitGroup(pygame.sprite.Group):
         screen.fblits(blit_list)
 
 
-crond = CronD()
 sprite_group = FBlitGroup()
 
 
@@ -649,11 +649,13 @@ class Demo(GameState):
 
         def fade_system(dt, eid, fade, rsai):
             rsai.alpha = fade()
-            if fade.duration.cold:
+            if fade.duration.cold():
                 ecs.remove_component(eid, 'fade')
 
         def angular_momentum_system(dt, eid, angular_momentum, momentum):
-            momentum.rotate_ip(angular_momentum * dt)
+            v = glm.rotate(momentum, glm.radians(angular_momentum * dt))
+            momentum.xy = v.xy
+            # momentum.rotate_ip(angular_momentum * dt)
 
         crond.update()
 

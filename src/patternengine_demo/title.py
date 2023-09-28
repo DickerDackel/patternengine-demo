@@ -43,7 +43,7 @@ class Title(GameState):
         if self.go:
             return States.DEMO, self.persist
 
-        if self.blink_cooldown.cold:
+        if self.blink_cooldown.cold():
             self.blink_cooldown.reset()
             self.blink = not self.blink
 
