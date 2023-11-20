@@ -13,12 +13,12 @@ class Title(GameState):
         self.group = pygame.sprite.Group()
         self.group_off = pygame.sprite.Group()
 
-        font = pygame.Font(None, 64)
+        font = pygame.font.Font(None, 64)
         image = font.render('Pattern Engine Demo', True, 'white')
         sprite = ecsc.ESprite(self.group, self.group_off, image=image)
         sprite.rect.center = (self.app.rect.centerx, self.app.rect.height // 5 * 2)
 
-        font = pygame.Font(None, 48)
+        font = pygame.font.Font(None, 48)
         image = font.render('press SPACE', True, 'white')
         sprite = ecsc.ESprite(self.group, image=image)
         sprite.rect.center = (self.app.rect.centerx, self.app.rect.height // 5 * 3)

@@ -21,7 +21,7 @@ crond = CronD()
 class FBlitGroup(pygame.sprite.Group):
     def draw(self, screen):
         blit_list = [(sprite.image, sprite.rect.topleft) for sprite in self.sprites()]
-        screen.fblits(blit_list)
+        screen.blits(blit_list)
 
 
 sprite_group = FBlitGroup()
@@ -33,7 +33,7 @@ class TextSprite(pygame.sprite.Sprite):
 
         self._text = ''
 
-        self.font = pygame.Font(None, size)
+        self.font = pygame.font.Font(None, size)
         self.image = self.font.render(self._text, True, 'white')
         self.rect = self.image.get_rect(center=pos)
 

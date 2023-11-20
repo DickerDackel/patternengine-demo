@@ -14,7 +14,7 @@ def main():
     app = App(TITLE, SCREEN, FPS)
 
     persist = SimpleNamespace(
-        font=pygame.Font(None),
+        font=pygame.font.Font(None),
     )
 
     states = {
